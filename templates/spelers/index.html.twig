@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spelers index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Spelers index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for speler in spelers %}
+            <tr>
+                <td>{{ speler.id }}</td>
+                <td>{{ speler.firstName }}</td>
+                <td>{{ speler.lastName }}</td>
+                <td>
+                    <a href="{{ path('spelers_show', {'id': speler.id}) }}">show</a>
+                    <a href="{{ path('spelers_edit', {'id': speler.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('spelers_new') }}">Create new</a>
+</div>
+{% endblock %}

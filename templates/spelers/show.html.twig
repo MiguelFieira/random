@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spelers{% endblock %}
+
+{% block body %}
+    <h1>Spelers</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ speler.id }}</td>
+            </tr>
+            <tr>
+                <th>First_name</th>
+                <td>{{ speler.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ speler.lastName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('spelers_index') }}">back to list</a>
+
+    <a href="{{ path('spelers_edit', {'id': speler.id}) }}">edit</a>
+
+    {{ include('spelers/_delete_form.html.twig') }}
+{% endblock %}
